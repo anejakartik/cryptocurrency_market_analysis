@@ -1,0 +1,15 @@
+# Core Requirements
+requests==2.31.0
+pandas==2.1.4
+praw==7.7.1
+pyodbc==5.1.0
+textblob==0.17.1
+python-dateutil==2.8.2
+
+# Text Processing (for sentiment analysis)
+nltk==3.8.1
+
+# Optional (for future enhancements)
+aiohttp==3.9.1  # For async requests
+tqdm==4.66.1     # For progress bars
+sqlalchemy==2.0.25  # Alternative SQL interface
