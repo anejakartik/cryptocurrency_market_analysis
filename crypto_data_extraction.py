@@ -9,7 +9,6 @@ class CryptoDataFetcher:
     
     def fetch_historical_data(self, coin, currency="USD", start_date="2023-01-01", end_date="2024-12-31", limit=2000):
         """Fetch historical data for a cryptocurrency from start_date to end_date."""
-        # Convert start and end dates to UNIX timestamps
         start_date_obj = datetime.strptime(start_date, "%Y-%m-%d")
         end_date_obj = datetime.strptime(end_date, "%Y-%m-%d")
         
@@ -26,7 +25,6 @@ class CryptoDataFetcher:
         }
 
         response = requests.get(self.base_url, params=params)
-        
         if response.status_code != 200:
             raise Exception(f"Error fetching data: {response.status_code}")
 
@@ -36,8 +34,6 @@ class CryptoDataFetcher:
         df = pd.DataFrame(data)
         df['time'] = pd.to_datetime(df['time'], unit='s')  # Convert UNIX timestamp to datetime
         df.set_index('time', inplace=True)
-        
-        # Filter data between the specified start and end date
         df = df[(df.index >= start_date_obj) & (df.index <= end_date_obj)]
         
         return df
