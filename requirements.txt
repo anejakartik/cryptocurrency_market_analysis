@@ -17,7 +17,7 @@ sqlalchemy==2.0.25  # Alternative SQL interface
 streamlit
 
 numpy
-
+xgboost
 scikit-learn
 matplotlib
 ta
